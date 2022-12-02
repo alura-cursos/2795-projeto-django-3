@@ -1,0 +1,24 @@
+{% extends 'galeria/base.html' %}
+{% load static %}
+{% block content %}
+            <section class="conteudo">
+                <section class="imagem">
+                    <div class="imagem__conteudo">
+                        {% if fotografia.foto == "" or fotografia.foto == null %}
+                        <img class="imagem__imagem" src="{% static '/assets/imagens/galeria/not-found.png'%}">
+                        {% else %}
+                        <img class="imagem__imagem" src="{{fotografia.foto.url}}">
+                        {% endif %}
+                        <div class="imagem__info">
+                            <div class="imagem__texto">
+                                <p class="imagem__titulo">{{fotografia.nome}}</p>
+                                <p class="imagem__descricao">{{fotografia.legenda}}</p>
+                                <p class="imagem__texto">{{fotografia.descricao}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </main>
+    </div>
+{% endblock %}
