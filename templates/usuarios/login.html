@@ -42,18 +42,14 @@
             </section>
             <section class="galeria" style="margin-left: 5em">
                 <form action="" method="">
+                    {% csrf_token %}
                     <div class="row">
-                        <div class="col-12 col-lg-12" style="margin-bottom: 10px;">
-                            <label for="nome_login" style="color:#D9D9D9; margin-bottom: 5px;"><b>Nome de Login</b></label>
-                            <input type="text" class="form-control" name="nome_login" placeholder="Ex.: João Silva" required>
+                        {% for field in form.visible_fields %}
+                        <div>
+                            <label for="{{ field.id_for_label }}">{{field.label}}</label>
+                            {{ field }}
                         </div>
-                        <div class="col-12 col-lg-12" style="margin-bottom: 10px;">
-                            <label for="password" style="color:#D9D9D9; margin-bottom: 5px;"><b>Senha</b></label>
-                            <input type="password" class="form-control" name="password" placeholder="Digite sua senha" required>
-                        </div>
-                        <div class="col-12 text-center">
-                            <button class="btn btn-success col-12" style="padding: top 5px;" type="submit">Login</button>
-                        </div>
+                        {% endfor %}
                     </div>
                 </form>
             </section>
