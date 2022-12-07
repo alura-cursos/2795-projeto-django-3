@@ -42,26 +42,17 @@
             </section>
             <section class="galeria" style="margin-left: 5em">
                 <form action="" method="">
+                    {% csrf_token %}
                     <div class="row">
+                        {% for field in form.visible_fields %}
                         <div class="col-12 col-lg-12" style="margin-bottom: 10px;">
-                            <label for="nome_cadastro" style="color:#D9D9D9; margin-bottom: 5px;"><b>Nome completo</b></label>
-                            <input type="text" class="form-control" name="nome_cadastro" placeholder="Ex.: João Silva" required>
+                            <label for="{{ field.id_for_label }}" style="color:#D9D9D9; margin-bottom: 5px;">{{field.label}}</label>
+                            {{ field }}
                         </div>
-                        <div class="col-12 col-lg-12" style="margin-bottom: 10px;">
-                            <label for="email" style="color:#D9D9D9; margin-bottom: 5px;"><b>Email</b></label>
-                            <input type="email" class="form-control" name="email" placeholder="Ex.: joaosilva@xpto.com" required>
-                        </div>
-                        <div class="col-12 col-lg-6" style="margin-bottom: 10px;">
-                            <label for="password1" style="color:#D9D9D9; margin-bottom: 5px;"><b>Senha</b></label>
-                            <input type="password" class="form-control" name="password1" placeholder="Digite sua senha" required>
-                        </div>
-                        <div class="col-12 col-lg-6" style="margin-bottom: 10px;">
-                            <label for="password2" style="color:#D9D9D9; margin-bottom: 5px;"><b>Confirmação de senha</b></label>
-                            <input type="password" class="form-control" name="password2" placeholder="Digite sua senha mais uma vez" required>
-                        </div>
-                        <div class="col-12 text-center">
-                            <button class="btn btn-success col-12" style="padding: top 5px;" type="submit">Criar sua conta</button>
-                        </div>
+                        {% endfor %}
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-success col-12" style="padding: top 5px;">Cadastrar</button>
                     </div>
                 </form>
             </section>
