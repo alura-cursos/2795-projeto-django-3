@@ -382,3 +382,27 @@ table {
     border: 2px solid #7B78E5;
     cursor: pointer;
 }
+
+.alert {
+    --bs-alert-bg: transparent;
+    --bs-alert-padding-x: 1rem;
+    --bs-alert-padding-y: 1rem;
+    --bs-alert-margin-bottom: 1rem;
+    --bs-alert-color: inherit;
+    --bs-alert-border-color: transparent;
+    --bs-alert-border: 1px solid var(--bs-alert-border-color);
+    --bs-alert-border-radius: 0.375rem;
+    position: relative;
+    padding: var(--bs-alert-padding-y) var(--bs-alert-padding-x);
+    margin-bottom: var(--bs-alert-margin-bottom);
+    color: var(--bs-alert-color);
+    background-color: var(--bs-alert-bg);
+    border: var(--bs-alert-border);
+    border-radius: var(--bs-alert-border-radius);
+}
+
+.alert-primary {
+    --bs-alert-color: #084298;
+    --bs-alert-bg: #cfe2ff;
+    --bs-alert-border-color: #b6d4fe;
+}
